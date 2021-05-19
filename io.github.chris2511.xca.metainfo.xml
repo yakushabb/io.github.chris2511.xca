@@ -31,6 +31,24 @@
     </description>
     <developer_name>Christian Hohnstädt, Kerstin Steinhauff et al.</developer_name>
     <releases>
+        <release date="2021-05-29" version="2.4.0">
+            <ul>
+                <li>The latest release is <em>2.4.0</em>
+                </li>
+                <li>Most notable changes
+                    <ul>
+                        <li>Add support for Ed25519 keys</li>
+                        <li>Add commandline support (e.g. generate CRL)</li>
+                    </ul>
+                </li>
+                <li>Fix a lot of bugs</li>
+                <li>Since version 2 of XCA the database format changed to SQL
+            Don't try to open it with older versions of XCA (&lt; 1.4.0).
+            They will corrupt the database.</li>
+                <li>Please report issues on github <a href="https://github.com/chris2511/xca/issues">https://github.com/chris2511/xca/issues</a>
+                </li>
+            </ul>
+        </release>
         <release date="2020-04-29" version="2.3.0">
             <ul>
                 <li>

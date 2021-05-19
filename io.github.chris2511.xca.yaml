@@ -23,13 +23,14 @@ modules:
     sources:
       - type: git
         url: https://github.com/chris2511/xca.git
-        tag: RELEASE.2.3.0
-        commit: 79510a24c52c6678e2daf3e5dbedb0841343ecea
+        tag: RELEASE.2.4.0
+        commit: 5193d34ff2e04386209fef8a3120e1ae5f8f9604
         disable-fsckobjects: true
       - type: file
         path: "io.github.chris2511.xca.metainfo.xml"
-      - type: patch
-        path: 0001-unset-werror.patch
+      # 0001 not needed anymore?
+      #- type: patch
+      #  path: 0001-unset-werror.patch
       - type: patch
         path: 0002-desktop-icon-fix.patch
     post-install:
@@ -47,16 +48,19 @@ modules:
 
       # install doc
       - install -m 755 -d /app/share/doc/xca
-      - install -m 644 doc/xca*.html /app/share/doc/xca
+      
+      # Missing sphix for docs?
+      #- install -m 644 doc/xca*.html /app/share/doc/xca
+
       - install -m 755 -d /app/share/man/man1
       - install -m 644 doc/*.1.gz //app/share/man/man1
 
       # install img
       - install -Dm644 img/xca-32x32.xpm /app/share/pixmaps/io.github.chris2511.xca.xpm
       - |
-        for SZ in 16 32 64; do
-        if [ -f img/xca-${SZ}x${SZ}.png ]; then
-        install -Dm0644 img/xca-${SZ}x${SZ}.png /app/share/icons/hicolor/${SZ}x${SZ}/apps/io.github.chris2511.xca.png ;
+        for SZ in 16 32 64 128 512; do
+        if [ -f img/xca-icons.iconset/icon_${SZ}x${SZ}.png ]; then
+        install -Dm0644 img/xca-icons.iconset/icon_${SZ}x${SZ}.png /app/share/icons/hicolor/${SZ}x${SZ}/apps/io.github.chris2511.xca.png ;
         fi ;
         done
 
@@ -64,5 +68,5 @@ modules:
       - install -Dm755 xca /app/bin/xca
 
       # few extra app-info icon sizes just in case
-      - install -Dm644 img/xca-32x32.png /app/share/app-info/icons/flatpak/32x32/io.github.chris2511.xca.png
-      - install -Dm644 img/xca-16x16.png /app/share/app-info/icons/flatpak/16x16/io.github.chris2511.xca.png
+      - install -Dm644 img/xca-icons.iconset/icon_32x32.png /app/share/app-info/icons/flatpak/32x32/io.github.chris2511.xca.png
+      - install -Dm644 img/xca-icons.iconset/icon_16x16.png /app/share/app-info/icons/flatpak/16x16/io.github.chris2511.xca.png
