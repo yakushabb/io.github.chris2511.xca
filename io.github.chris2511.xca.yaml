@@ -1,6 +1,6 @@
 app-id: io.github.chris2511.xca
 runtime: org.kde.Platform
-runtime-version: '5.15'
+runtime-version: '5.15-21.08'
 sdk: org.kde.Sdk
 finish-args:
   # X11 + XShm access
