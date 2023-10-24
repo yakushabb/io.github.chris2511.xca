@@ -1,10 +1,11 @@
 app-id: io.github.chris2511.xca
 runtime: org.kde.Platform
-runtime-version: '5.15-21.08'
+runtime-version: '6.5'
 sdk: org.kde.Sdk
 finish-args:
   # X11 + XShm access
   - --share=ipc
+  - --share=network
   - --socket=fallback-x11
   # Qt wants OpenGL access
   - --device=dri
@@ -14,17 +15,16 @@ finish-args:
   - --filesystem=xdg-documents
 command: xca
 modules:
+  - python3-sphinx.json
   - name: xca
-    buildsystem: simple
-    build-commands:
-      - ./bootstrap
-      - "STRIP=: ./configure --prefix=/app"
-      - make -j$(nproc)
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
     sources:
       - type: git
         url: https://github.com/chris2511/xca.git
-        tag: RELEASE.2.4.0
-        commit: 5193d34ff2e04386209fef8a3120e1ae5f8f9604
+        tag: RELEASE.2.5.0
+        commit: 4ddb086128665268082dc3d328bfcca889648dd4
         disable-fsckobjects: true
       - type: file
         path: "io.github.chris2511.xca.metainfo.xml"
@@ -35,34 +35,3 @@ modules:
         path: 0002-desktop-icon-fix.patch
     post-install:
       - install -Dm644 io.github.chris2511.xca.metainfo.xml /app/share/metainfo/io.github.chris2511.xca.metainfo.xml
-
-      # install misc
-      - install -m 755 -d /app/share/xca /app/share/applications /app/share/mime/packages
-      - install -m 644 misc/dn.txt misc/oids.txt misc/eku.txt misc/*.xca /app/share/xca
-      - install -Dm644 misc/xca.desktop /app/share/applications/io.github.chris2511.xca.desktop
-      - install -Dm644 misc/xca.xml /app/share/mime/packages/io.github.chris2511.xca.xml
-
-      # install lang
-      - install -m 755 -d /app/share/xca
-      - install -m 644 lang/*.qm /app/share/xca
-
-      # install doc
-      - install -m 755 -d /app/share/doc/xca
-      
-      # Missing sphix for docs?
-      #- install -m 644 doc/xca*.html /app/share/doc/xca
-
-      - install -m 755 -d /app/share/man/man1
-      - install -m 644 doc/*.1.gz //app/share/man/man1
-
-      # install img
-      - install -Dm644 img/xca-32x32.xpm /app/share/pixmaps/io.github.chris2511.xca.xpm
-      - |
-        for SZ in 16 32 64 128 512; do
-        if [ -f img/xca-icons.iconset/icon_${SZ}x${SZ}.png ]; then
-        install -Dm0644 img/xca-icons.iconset/icon_${SZ}x${SZ}.png /app/share/icons/hicolor/${SZ}x${SZ}/apps/io.github.chris2511.xca.png ;
-        fi ;
-        done
-
-      # install bin
-      - install -Dm755 xca /app/bin/xca
