@@ -31,10 +31,18 @@
     </description>
     <developer_name>Christian Hohnstädt, Kerstin Steinhauff et al.</developer_name>
     <releases>
+        <release date="2023-09-24" version="2.5.0"></release>
+            <ul>
+                <li>The latest release is <em>2.5.0</em></li>
+                <li>Drop support for Qt4, old XCA &lt; 2.0.0 databases and OpenSSL &lt; 1.1.0</li>
+                <li>Add Support for Qt6 and OpenSSL 3.x</li>
+                <li>Switch from autotools/qmake to cmake</li>
+                <li>Fix a lot of bugs (and probably added some new)</li>
+                <li>Add translations for Indonesian, Persian and Bulgarian</li>
+                <li>Please report issues on github <a href="https://github.com/chris2511/xca/issues">https://github.com/chris2511/xca/issues</a></li>
+            </ul>
         <release date="2021-05-08" version="2.4.0">
             <ul>
-                <li>The latest release is <em>2.4.0</em>
-                </li>
                 <li>Most notable changes
                     <ul>
                         <li>Add support for Ed25519 keys</li>
