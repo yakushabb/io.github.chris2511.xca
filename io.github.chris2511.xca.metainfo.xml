@@ -31,74 +31,17 @@
     </description>
     <developer_name>Christian Hohnstädt, Kerstin Steinhauff et al.</developer_name>
     <releases>
-        <release date="2023-09-24" version="2.5.0"></release>
-            <ul>
-                <li>The latest release is <em>2.5.0</em></li>
-                <li>Drop support for Qt4, old XCA &lt; 2.0.0 databases and OpenSSL &lt; 1.1.0</li>
-                <li>Add Support for Qt6 and OpenSSL 3.x</li>
-                <li>Switch from autotools/qmake to cmake</li>
-                <li>Fix a lot of bugs (and probably added some new)</li>
-                <li>Add translations for Indonesian, Persian and Bulgarian</li>
-                <li>Please report issues on github <a href="https://github.com/chris2511/xca/issues">https://github.com/chris2511/xca/issues</a></li>
-            </ul>
-        <release date="2021-05-08" version="2.4.0">
-            <ul>
-                <li>Most notable changes
-                    <ul>
-                        <li>Add support for Ed25519 keys</li>
-                        <li>Add commandline support (e.g. generate CRL)</li>
-                    </ul>
-                </li>
-                <li>Fix a lot of bugs</li>
-                <li>Since version 2 of XCA the database format changed to SQL
-            Don't try to open it with older versions of XCA (&lt; 1.4.0).
-            They will corrupt the database.</li>
-                <li>Please report issues on github <a href="https://github.com/chris2511/xca/issues">https://github.com/chris2511/xca/issues</a>
-                </li>
-            </ul>
-        </release>
-        <release date="2020-04-29" version="2.3.0">
-            <ul>
-                <li>
-                    Close #191 OID LN differs warning popups at startup
-                </li>
-                <li>
-                    Close #189 Database compaction #189
-                </li>
-                <li>
-                    Improve PKCS11 library loading for portable app
-                </li>
-                <li>
-                    Refactor native separators / and \ on windows.
-                </li>
-                <li>
-                    Support TLS encrypted MariaDB and PostgreSQL connection
-                </li>
-                <li>
-                    Close #182: UI not using Windows native theme in 2.2.1 portable
-                </li>
-                <li>
-                    Close #70: cant open ics file in ical on macos mojave
-                </li>
-                <li>
-                    Close #72: Add checkbox for OCSP staple feature
-                </li>
-                <li>
-                    Use DESTDIR instead of destdir when installing. Follows autotools convention.
-                </li>
-                <li>
-                    Close #172 #46: Multiple OCSP Responders
-                </li>
-                <li>
-                    Close #170 xca-portable-2.2.1 cannot change language
-                </li>
-                <li>
-                    Fix certificate assignment when importing a CA certificate
-                </li>
-                <li>
-                    Close #163: Show key type/size on column of Certificates tab
-                </li>
-            </ul>
+        <release date="2023-09-24" version="2.5.0">
+            <description>
+                <p>The latest release is <em>2.5.0</em></p>
+                <ul>
+                    <li>Drop support for Qt4, old XCA &lt; 2.0.0 databases and OpenSSL &lt; 1.1.0</li>
+                    <li>Add Support for Qt6 and OpenSSL 3.x</li>
+                    <li>Switch from autotools/qmake to cmake</li>
+                    <li>Fix a lot of bugs (and probably added some new)</li>
+                    <li>Add translations for Indonesian, Persian and Bulgarian</li>
+                </ul>
+            </description>
         </release>
     </releases>
     <screenshots>

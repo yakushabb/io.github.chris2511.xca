@@ -1,6 +1,6 @@
 app-id: io.github.chris2511.xca
 runtime: org.kde.Platform
-runtime-version: '6.5'
+runtime-version: '6.6'
 sdk: org.kde.Sdk
 finish-args:
   # X11 + XShm access
@@ -13,7 +13,17 @@ finish-args:
   - --socket=wayland
   # Needs to save files locally
   - --filesystem=xdg-documents
+cleanup:
+  - /include
+  - /lib/pkgconfig
+  - /man
+  - /share/doc
+  - /share/man
+  - /share/gtk-doc
+  - '*.la'
+  - '*.a'
 command: xca
+rename-desktop-file: "xca.desktop"
 modules:
   - python3-sphinx.json
   - name: xca
@@ -35,3 +45,9 @@ modules:
         path: 0002-desktop-icon-fix.patch
     post-install:
       - install -Dm644 io.github.chris2511.xca.metainfo.xml /app/share/metainfo/io.github.chris2511.xca.metainfo.xml
+      - install -D -m 0644 /app/share/icons/hicolor/16x16/apps/xca.png /app/share/icons/hicolor/16x16/apps/io.github.chris2511.xca.png
+      - install -D -m 0644 /app/share/icons/hicolor/32x32/apps/xca.png /app/share/icons/hicolor/32x32/apps/io.github.chris2511.xca.png
+      - install -D -m 0644 /app/share/icons/hicolor/48x48/apps/xca.png /app/share/icons/hicolor/48x48/apps/io.github.chris2511.xca.png
+      - install -D -m 0644 /app/share/icons/hicolor/64x64/apps/xca.png /app/share/icons/hicolor/64x64/apps/io.github.chris2511.xca.png
+      - install -D -m 0644 /app/share/icons/hicolor/64x64/apps/xca.png /app/share/icons/hicolor/scalable/apps/io.github.chris2511.xca.png
+      - install -D -m 0644 /app/share/icons/hicolor/64x64/apps/xca.png /app/share/icons/hicolor/symbolic/apps/io.github.chris2511.xca-symbolic.png
